@@ -1,0 +1,20 @@
+@page "/databinding"
+
+<h1>Two-way binding</h1>
+
+<TinymceBlazor.Editor @bind-Value=content  />
+
+<button class="btn btn-primary" @onclick="ClearContent">Clear</button>
+
+<div class="dotted-lines">
+  <textarea @bind=content @bind:event="oninput"></textarea>
+</div>
+
+@code {
+    private string content = "<p>Hello world</p>";
+
+    private void ClearContent()
+    {
+        content = "";
+    }
+}

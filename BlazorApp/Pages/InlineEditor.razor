@@ -1,0 +1,21 @@
+﻿@page "/inline"
+
+<h1>Inline Editor with Element reference</h1>
+
+<TinymceBlazor.Editor Inline=true Value=@content @ref=TinyEditor  />
+
+<button class="btn btn-primary" @onclick="UpdateContent">Submit</button>
+
+<div class="dotted-lines">
+  @((MarkupString)content)
+</div>
+
+@code {
+    private string content = "<p>Hello world</p>";
+    private TinymceBlazor.Editor TinyEditor;
+
+    private void UpdateContent()
+    {
+        content = TinyEditor.Value;
+    }
+}

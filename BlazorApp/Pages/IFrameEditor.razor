@@ -1,0 +1,18 @@
+@page "/iframe"
+
+<h1>IFrame Editor</h1>
+
+<TinymceBlazor.Editor @bind-Value=content  />
+
+<button class="btn btn-primary" @onclick="ClearContent">Clear</button>
+
+<div class="dotted-lines">@((MarkupString)content)</div>
+
+@code {
+    private string content = "<p>Hello world</p>";
+
+    private void ClearContent()
+    {
+        content = "";
+    }
+}
